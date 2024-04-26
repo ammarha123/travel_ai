@@ -35,6 +35,7 @@ Route::get('/trip-planner', [TripPlannerController::class, 'index'])->name('trip
 Route::post('/trip-planner', [TripPlannerController::class, 'store'])->name('trip-planner.store');
 
 Route::get('/discover', [DiscoverController::class, 'index'])->name('discover.index');
+Route::get('discover/details/{slang}', [DiscoverController::class, 'showDetails'])->name('city.details');
 
 //Help Routes
 Route::get('/help', [HelpController::class, 'index'])->name('help.index');

@@ -12,4 +12,9 @@ class DiscoverController extends Controller
         $cities = City::all();
         return view('frontend.discover.index', ['cities' => $cities]);
     }
+    public function showDetails($slang)
+    {
+        $city = City::where('slang', $slang)->firstOrFail();
+        return view('frontend.discover.details', compact('city'));
+    }
 }
