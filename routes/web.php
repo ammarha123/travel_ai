@@ -30,8 +30,14 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register'])->name('register.submit');
 
+//Trip Planer Routes
 Route::get('/trip-planner', [TripPlannerController::class, 'index'])->name('trip-planner.index');
 Route::post('/trip-planner', [TripPlannerController::class, 'store'])->name('trip-planner.store');
+
 Route::get('discover', [DiscoverController::class, 'index'])->name('discover');
-Route::get('help', [HelpController::class, 'index'])->name('help');
+
+//Help Routes
+Route::get('/help', [HelpController::class, 'index'])->name('help.index');
+Route::post('/help', [HelpController::class, 'storeMessage'])->name('help.storeMessage');
+
 Route::get('profile', [ProfileController::class, 'index'])->name('profile');
