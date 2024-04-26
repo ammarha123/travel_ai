@@ -1,0 +1,214 @@
+.bg-image {
+    background-image: url('../img/travel_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+}
+
+.content-text {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.section-starter {
+    padding: 80px 0;
+    background-color: #ffffff; 
+}
+
+
+.section-title {
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #333; 
+    margin-bottom: 20px; 
+}
+
+/* Style for the section description */
+.section-description {
+    font-size: 18px; 
+    color: #666; 
+    line-height: 1.6; 
+    padding: 0px 20%;
+    margin-bottom: 30px;
+}
+
+/* Style for the section button */
+.section-button .btn {
+    font-size: 18px; 
+    padding: 12px 24px; 
+}
+
+.section-button .btn:hover {
+    background-color: #343a40; 
+}
+
+.section-image {   
+    margin-bottom: 30px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.section-image img {
+    max-width: 100%;
+    height: auto; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-popular-cities {
+    padding: 80px 0; 
+    background-color: #f8f9fa; 
+}
+
+.city-list {
+    display: flex; 
+    justify-content: center;
+    gap: 30px; 
+}
+
+.city-card {
+    width: 300px; 
+    padding: 20px; 
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+}
+
+.city-card img {
+    width: 100%; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+}
+
+.city-card h3 {
+    font-size: 24px; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.city-card p {
+    font-size: 16px;
+    color: #666; 
+    line-height: 1.6;
+}
+
+.section-sign-up {
+    padding: 80px 0; 
+    background-color: #f8f9fa; 
+}
+
+.sign-up-form .btn {
+    font-size: 20px; 
+    padding: 12px 24px; 
+    border-radius: 5px; 
+    background-color: #007bff;
+    color: #fff; 
+    transition: background-color 0.3s ease; 
+}
+
+.sign-up-form .btn:hover {
+    background-color: #0056b3; 
+}
+
+.section-user-evaluation {
+    padding: 50px 0;
+}
+
+.user-feedback-form {
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-feedback-form form {
+    max-width: auto;
+    margin: auto;
+}
+
+.user-feedback-form .form-group {
+    margin-bottom: 20px;
+}
+
+.user-feedback-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-feedback-form input[type="text"],
+.user-feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.user-feedback-form button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-feedback-form button:hover {
+    background-color: #0056b3;
+}
+
+
+.user-feedback-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-feedback {
+    flex: 0 0 48%; 
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 2%; 
+    margin-bottom: 20px;
+}
+
+.user-feedback:last-child {
+    margin-right: 0; 
+}
+
+.user-feedback h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-feedback p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 24px; 
+    }
+    .section-description {
+        font-size: 16px; 
+        padding: 0px;
+    }
+    .section-button .btn {
+        font-size: 16px; 
+    }
+}
