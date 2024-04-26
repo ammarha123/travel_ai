@@ -12,32 +12,42 @@
             <li class="nav-item {{ Request::is('trip-planner') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/trip-planner') }}">Trip Planner</a>
             </li>
-            <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/about') }}">About</a>
+            @auth
+            <li class="nav-item {{ Request::is('myPlans') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/my-plans') }}">My Plans</a>
             </li>
-            <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+            @endauth
+            <li class="nav-item {{ Request::is('discover') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/discover') }}">Discover</a>
+            </li>
+            <li class="nav-item {{ Request::is('help') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/help') }}">Help</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto"> <!-- Right-aligned login/register -->
-            @if (Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
-                </li>
-                <li class="nav-item">
+        <ul class="navbar-nav ml-auto align-items-center"> <!-- Right-aligned menu items -->
+            @auth
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url('/profile') }}">My Profile</a>
+                    <a class="dropdown-item" href="{{ url('/profile/edit') }}">Edit Profile</a>
+                    <div class="dropdown-divider"></div>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-link nav-link">Logout</button>
+                        <button type="submit" class="dropdown-item">Logout</button>
                     </form>
-                </li>
+                </div>
+            </li>            
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
                 </li>
-            @endif
-        </ul>
+            @endauth
+        </ul>        
     </div>
 </nav>

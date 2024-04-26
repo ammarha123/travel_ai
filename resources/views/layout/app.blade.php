@@ -25,6 +25,11 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
+      <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 </head>
@@ -37,12 +42,12 @@
             @yield('content')
         </main>
 
-        @include('layout.inc.frontend.footer')
+        @if(!isset($hideFooter) || !$hideFooter)
+            @include('layout.inc.frontend.footer')
+        @endif
     </div>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
     @yield('script')
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     @stack('script')
 </body>
 

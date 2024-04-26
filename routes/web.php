@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Frontend\DiscoverController;
+use App\Http\Controllers\Frontend\HelpController;
+use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\TripPlannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +20,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[App\Http\Controllers\FrontendController::class, 'index'] );
+
+// Login Routes
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('login.submit');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Registration Routes
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register'])->name('register.submit');
+
+Route::get('trip-planner', [TripPlannerController::class, 'index'])->name('trip-planner');
+Route::get('discover', [DiscoverController::class, 'index'])->name('discover');
+Route::get('help', [HelpController::class, 'index'])->name('help');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile');
