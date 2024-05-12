@@ -25,9 +25,6 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
-      <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
    
 
     <!-- Style -->
@@ -47,7 +44,15 @@
         @endif
     </div>
     @yield('script')
+      <!-- jQuery -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+   <!-- In your HTML head section -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBARuBB969frhWxwEYAk17aIXxR2C7gZ7s&libraries=places&callback=initAutocomplete" async defer></script>
+
     @stack('script')
 </body>
 

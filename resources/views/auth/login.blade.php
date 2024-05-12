@@ -49,8 +49,8 @@
                                 </form>
                                 <div class="sideline">OR</div>
                                 <div>
-                                    <button type="submit" class="btn btn-warning w-100 font-weight-bold mt-2"><i
-                                            class="fa fa-google" aria-hidden="true"></i> Login With Google</button>
+                                    <a href="{{ route('login.google') }}"class="btn btn-warning w-100 font-weight-bold mt-2"><i
+                                            class="fa fa-google" aria-hidden="true"></i> Login With Google</a>
                                 </div>
                                 <div class="pt-4 text-center">
                                     Need an account?  <a href="{{ route('register') }}">Create One</a>

@@ -20,12 +20,12 @@
                 <input type="date" id="end_date" name="end_date" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="catering_budget">Catering Budget:</label>
-                <input type="number" id="catering_budget" name="catering_budget" class="form-control">
+                <label for="catering_budget">Catering Budget (RM):</label>
+                <input type="number" id="catering_budget" name="catering_budget" class="form-control" placeholder="RM">
             </div>
             <div class="form-group">
-                <label for="accommodation_budget">Accommodation Budget:</label>
-                <input type="number" id="accommodation_budget" name="accommodation_budget" class="form-control">
+                <label for="accommodation_budget">Accommodation Budget (RM):</label>
+                <input type="number" id="accommodation_budget" name="accommodation_budget" class="form-control" placeholder="RM">
             </div>
             <div class="form-group">
                 <label for="travel_style">Travel Style:</label>
@@ -38,4 +38,23 @@
             <button type="submit" class="btn btn-primary">Plan Trip</button>
         </form>
     </div>
+    <!-- Custom script to initialize autocomplete -->
+    <script>
+        function initAutocomplete() {
+            var input = document.getElementById('destination');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+    
+            autocomplete.setFields(['address_components', 'geometry', 'name']);
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and pressed the Enter key, or the Place Details request failed.
+                    window.alert("No details available for input: '" + place.name + "'");
+                } else {
+                    // If the place has a geometry, then present it on a map.
+                    console.log(place.name + ', ' + place.address_components.map(ac => ac.long_name).join(', '));
+                }
+            });
+        }
+        </script>
 @endsection

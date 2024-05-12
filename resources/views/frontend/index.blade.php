@@ -27,7 +27,7 @@
             AI Travel offers intuitive trip planning powered by artificial intelligence, optimizing routes, accommodations, and activities for seamless travel experiences.
         </div>
         <div class="section-button text-center">
-            <button class="btn btn-dark">Get Started</button>
+            <a href="{{ url('/trip-planner') }}" class="btn btn-dark">Get Started</a>
         </div>
     </div>
 </div>
@@ -79,7 +79,7 @@
         </div>
         <div class="sign-up-form text-center">
             <!-- Add your sign-up form or button here -->
-            <button class="btn btn-primary">Sign Up Now</button>
+            <a href="{{ url('/register') }}" class="btn btn-primary">Sign Up Now</a>
         </div>
     </div>
 </section>

@@ -13,6 +13,17 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    
+    'gemini' =>
+    [
+        'api_key' => env('GEMINI_API_KEY'),
+    ],
+    
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI'),
+    ],    
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

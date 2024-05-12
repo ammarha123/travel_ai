@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Trip;
+use GeminiAPI\Laravel\Facades\Gemini;
 
 class TripPlannerController extends Controller
 {
@@ -24,10 +25,23 @@ class TripPlannerController extends Controller
             'travel_style' => 'required|string|in:family,single,best',
         ]);
 
+        $destination = $request->get('destination');
+        $travelStyle = $request->get('travel_style');
+
+           // Generate activity suggestions using Gemini Pro
+        $activityPrompt = "Suggest interesting activities for a $travelStyle trip to $destination.";
+        $activityResult = Gemini::geminiPro()->generateContent($activityPrompt);
+        $activitySuggestions = $activityResult->text();
+
         // Create a new trip record
         Trip::create($validatedData);
 
         // Redirect or return response
-        return redirect()->route('trip-planner.index')->with('success', 'Trip planned successfully!');
+        return redirect()->route('trip-planner.result')->with('success', 'Trip planned successfully!');
     }
+
+    public function result(){
+        return view('frontend.trip-planner.result');
+    }
+
 }
