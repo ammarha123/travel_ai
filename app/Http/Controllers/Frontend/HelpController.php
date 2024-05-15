@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\FAQ;
 
 class HelpController extends Controller
 {
     public function index(){
-        return view('frontend.help.index');
+        $faqs = FAQ::all(); // Fetch all FAQs from the database
+        return view('frontend.help.index', compact('faqs'));
     }
 
     public function storeMessage(Request $request)

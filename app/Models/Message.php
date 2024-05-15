@@ -13,5 +13,10 @@ class Message extends Model
         'title',
         'description',
         'email',
+        'status', // Add status to the fillable attributes
+    ];
+
+    protected $attributes = [
+        'status' => 0, // Default status is 0 (unread)
     ];
 }

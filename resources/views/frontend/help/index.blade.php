@@ -7,32 +7,20 @@
     <h1 class="mb-4">FAQ</h1>
 
     <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="websiteFAQ">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#websiteCollapse" aria-expanded="true" aria-controls="websiteCollapse">
-                    How do I navigate the website?
-                </button>
-            </h2>
-            <div id="websiteCollapse" class="accordion-collapse collapse show" aria-labelledby="websiteFAQ" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    <p>You can use the menu at the top to access different sections like Home, Trip Planner, About, Contact, etc.</p>
+        @foreach($faqs as $faq)
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ $faq->id }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $faq->id }}" aria-expanded="false" aria-controls="collapse{{ $faq->id }}">
+                        {{ $faq->question }}
+                    </button>
+                </h2>
+                <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $faq->id }}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ $faq->answer }}
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- FAQ Section for Travel Planner AI -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="aiFAQ">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aiCollapse" aria-expanded="false" aria-controls="aiCollapse">
-                    What is the Travel Planner AI?
-                </button>
-            </h2>
-            <div id="aiCollapse" class="accordion-collapse collapse" aria-labelledby="aiFAQ" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    <p>The Travel Planner AI is an intelligent tool that assists in creating personalized travel plans based on user preferences.</p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
     <hr>

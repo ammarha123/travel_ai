@@ -6,9 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\DiscoverController;
+use App\Http\Controllers\Frontend\FeedbackController;
 use App\Http\Controllers\Frontend\HelpController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\TripPlannerController;
+use App\Http\Controllers\Admin\ManageUserController;
+use App\Http\Controllers\Admin\InboxController;
+use App\Http\Controllers\Admin\SupportCenterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +56,9 @@ Route::post('/help', [HelpController::class, 'storeMessage'])->name('help.storeM
 
 Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
+// Posting feedback
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
 //Admin Routes
 //Admin Discover Routes
 Route::get('/admin/dashboard/discover', [AdminDiscoverController::class, 'index'])->name('admin.discover.index');
@@ -65,5 +72,24 @@ Route::put('/admin/dashboard/discover/{city}', [AdminDiscoverController::class, 
 
 // Delete a city
 Route::delete('/admin/dashboard/discover/{city}', [AdminDiscoverController::class, 'destroy'])->name('discover.destroy');
+
+//Admin Manage User Routes
+Route::get('/admin/manage-users', [ManageUserController::class, 'index'])->name('manage.users');
+Route::get('/admin/users/{user}/edit', [ManageUserController::class, 'edit'])->name('users.edit');
+Route::put('/admin/users/{user}', [ManageUserController::class, 'update'])->name('users.update');
+Route::delete('/admin/users/{user}', [ManageUserController::class, 'destroy'])->name('users.destroy');
+
+//Admin Inbox Routes
+Route::get('/admin/inbox', [InboxController::class, 'index'])->name('inbox.index');
+Route::get('/admin/inbox/{id}', [InboxController::class, 'show'])->name('inbox.show');
+
+//Admin Support Center Routes
+Route::get('admin/faqs', [SupportCenterController::class, 'index'])->name('support-center.index');
+Route::get('/admin/faqs/detail/{id}', [SupportCenterController::class, 'show'])->name('support-center.show');
+Route::get('admin/faqs/create', [SupportCenterController::class, 'create'])->name('support-center.create');
+Route::post('admin/faqs', [SupportCenterController::class, 'store'])->name('support-center.store');
+Route::get('admin/faqs/{id}/edit', [SupportCenterController::class, 'edit'])->name('support-center.edit');
+Route::put('admin/faqs/{id}', [SupportCenterController::class, 'update'])->name('support-center.update');
+Route::delete('admin/faqs/destroy/{id}', [SupportCenterController::class, 'destroy'])->name('support-center.destroy');
 
 Route::get('/test-gemini', [App\Http\Controllers\GeminiController::class, 'test'])->name('test.gemini');

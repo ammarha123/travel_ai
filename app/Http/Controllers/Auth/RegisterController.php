@@ -26,6 +26,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user'
         ]);
 
         return redirect('/login')->with('success', 'Your account has been created. Please log in.');

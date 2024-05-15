@@ -23,15 +23,20 @@
                 <a href="{{ route('discover.create') }}" class="list-group-item list-group-item-action border-0 pl-5">Add List</a>
             </div>
         </div>
-        <a href="#" class="list-group-item list-group-item-action border-0 align-items-center">
+        <a href="{{ url('admin/manage-users') }}" class="list-group-item list-group-item-action border-0 align-items-center">
             <span class="bi bi-people"></span>
             <span class="ml-2">Manage User</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action border-0 align-items-center">
-            <span class="bi bi-folder"></span>
-            <span class="ml-2">Inbox</span>
+        <a href="{{ url('admin/inbox') }}" class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center">
+            <div>
+                <span class="bi bi-folder"></span>
+                <span class="ml-2">Inbox</span>
+            </div>
+            @if ($unreadCount > 0)
+                <span class="badge badge-pill badge-danger">{{ $unreadCount }}</span>
+            @endif
         </a>
-        <a href="#" class="list-group-item list-group-item-action border-0 align-items-center">
+        <a href="{{ url('admin/faqs') }}" class="list-group-item list-group-item-action border-0 align-items-center">
             <span class="bi bi-flag-fill"></span>
             <span class="ml-2">Support Center</span>
         </a>

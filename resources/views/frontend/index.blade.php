@@ -45,27 +45,17 @@
             Discover vibrant destinations that captivate travelers worldwide. From bustling metropolises to serene coastal towns, embark on unforgettable journeys in these iconic cities.
         </div>
         <div class="city-list">
+            @foreach($cities as $city)
             <div class="city-card">
-                <img src="{{ asset('assets/img/city1.jpg') }}" alt="City 1">
-                <h3>New York City</h3>
-                <p>The city that never sleeps, offering iconic landmarks, Broadway shows, and diverse culinary experiences.</p>
+                <a href="{{ route('city.details', $city->slang) }}">
+                    <img src="{{ asset('uploads/city/'.$city->image) }}" class="card-img-top" alt="{{ $city->name }}">
+                </a>
+                <h3>{{ $city->name }}</h3>
+                <p>{{ $city->description }}</p>
             </div>
-            <div class="city-card">
-                <img src="{{ asset('assets/img/city2.jpg') }}" alt="City 2">
-                <h3>Paris</h3>
-                <p>The romantic capital of the world, known for its art, fashion, and exquisite cuisine.</p>
-            </div>
-            <div class="city-card">
-                <img src="{{ asset('assets/img/bali.jpg') }}" alt="Bali">
-                <h3>Bali</h3>
-                <p>A tropical paradise with stunning beaches, lush rice terraces, and vibrant cultural experiences.</p>
-            </div>
-            <div class="city-card">
-                <img src="{{ asset('assets/img/kuala-lumpur.jpg') }}" alt="Kuala Lumpur">
-                <h3>Kuala Lumpur</h3>
-                <p>The dynamic capital of Malaysia, blending modern skyscrapers with historic landmarks and bustling markets.</p>
-            </div>
+            @endforeach
         </div>
+        <a class="btn btn-primary mt-3 text-center" href="{{ url('/discover') }}">Discover More</a>
     </div>
 </div>
 
@@ -97,7 +87,10 @@
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="user-feedback-form">
-                    <form action="" method="POST">
+                    @if(session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                    <form action="{{ route('feedback.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="name">Your Name:</label>
@@ -111,22 +104,16 @@
                     </form>
                 </div>
             </div>
-        </div        
+        </div>
 
         <!-- Display User Feedback -->
         <div class="user-feedback-list mt-5">
+            @foreach($feedbacks as $feedback)
             <div class="user-feedback">
-                <h4>John Doe</h4>
-                <p>Great trip planner! Loved the personalized recommendations.</p>
+                <h4>{{ $feedback->name }}</h4>
+                <p>{{ $feedback->feedback }}</p>
             </div>
-            <div class="user-feedback">
-                <h4>Jane Smith</h4>
-                <p>AI Travel made our vacation seamless and enjoyable.</p>
-            </div>
-            <div class="user-feedback">
-                <h4>Michael Johnson</h4>
-                <p>Highly recommend AI Travel for hassle-free trip planning.</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
