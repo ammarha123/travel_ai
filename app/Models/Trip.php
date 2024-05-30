@@ -16,5 +16,11 @@ class Trip extends Model
         'catering_budget',
         'accommodation_budget',
         'travel_style',
+        'user_id'
+    ];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 }

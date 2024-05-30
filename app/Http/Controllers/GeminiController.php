@@ -9,10 +9,10 @@ class GeminiController extends Controller
 {
     public function test(Request $request)
     {
-        $prompt = $request->get('prompt', 'Set plan trip to indonesia 3 days'); 
+        $prompt = $request->get('prompt', 'Set plan trip to indonesia 3 days, just list the destination recommended without description'); 
 
         $result = Gemini::generateText($prompt);
 
-        return view('frontend.trip-planner.result', compact('result', 'prompt'));
+        return view('frontend.test', compact('result', 'prompt'));
     }
 }

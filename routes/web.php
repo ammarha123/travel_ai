@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\TripPlannerController;
 use App\Http\Controllers\Admin\ManageUserController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\SupportCenterController;
+use App\Http\Controllers\Frontend\MyPlanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 //Trip Planer Routes
 Route::get('/trip-planner', [TripPlannerController::class, 'index'])->name('trip-planner.index');
 Route::post('/trip-planner', [TripPlannerController::class, 'store'])->name('trip-planner.store');
-// Route::get('/trip-planner/result', [TripPlannerController::class, 'result'])->name('trip-planner.result');
+Route::get('/trip-planner/result', [TripPlannerController::class, 'result'])->name('trip-planner.result');
 Route::get('/autocomplete/city', [TripPlannerController::class, 'autocompleteCity'])->name('autocomplete.city');
 
 //Discover Routes
@@ -56,6 +57,8 @@ Route::post('/help', [HelpController::class, 'storeMessage'])->name('help.storeM
 
 Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
+//My Plans Routes
+Route::get('/my-plans', [MyPlanController::class, 'index'])->name('my-plans.index')->middleware('auth');
 // Posting feedback
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 

@@ -1,5 +1,18 @@
 /*Home Page*/
 
+#map {
+    height: 100%;
+  }
+  
+
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
 .bg-image {
     background-image: url('../img/travel_banner.jpg');
     background-size: cover;
@@ -255,8 +268,6 @@ button {
     background-size: cover;
     background-position: center center;
   }
-
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

@@ -27,7 +27,7 @@
             AI Travel offers intuitive trip planning powered by artificial intelligence, optimizing routes, accommodations, and activities for seamless travel experiences.
         </div>
         <div class="section-button text-center">
-            <a href="{{ url('/trip-planner') }}" class="btn btn-dark">Get Started</a>
+            <a href="{{ url('/login') }}" class="btn btn-dark">Get Started</a>
         </div>
     </div>
 </div>
